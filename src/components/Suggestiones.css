@@ -1,0 +1,46 @@
+.Suggestiones{
+    background-color: white;
+    width: 188px;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-end-end-radius: 3px;
+    border-end-start-radius: 3px;
+    
+}
+
+.Suggestiones:hover{
+    background: rgb(201,206,232);
+    background: radial-gradient(circle, rgba(201,206,232,1) 0%, rgba(70,252,247,1) 100%);
+}
+
+
+.form{
+    position: absolute;
+    top: 8px;
+    left: 25px;
+    
+}
+
+@media only screen and (max-width: 760px) {
+    .form{
+        top: 40px;
+        left: 55px;
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+    .form{
+        left: 28px;
+    }
+
+}
+
+@media only screen and (max-width: 283px) {
+    .form{
+        left: 2px;
+    }
+
+}

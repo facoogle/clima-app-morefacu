@@ -1,0 +1,43 @@
+.navbar{
+  background-color: black;
+  justify-content:center;
+  position: relative;
+  padding-right: 50px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.about{
+  color: white;
+}
+
+.Contact{
+  color: white;
+}
+
+.brand{
+  color: white;
+  margin-top: -14px;
+  margin: 10px;
+}
+
+@media only screen and (max-width: 760px) {
+  .navbar{
+    padding-bottom: 40px;
+    font-size: 20px;
+  }
+
+  .about{
+    font-family: fantasy;
+    color: white;
+    
+  }
+
+  .brand{
+    font-family: fantasy;
+    color: white;
+    margin-top: -14px;
+    margin: 10px;
+  }
+}
+
