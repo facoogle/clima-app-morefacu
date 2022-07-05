@@ -1,11 +1,12 @@
-.cards {
-  
+.Cards {
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   position: relative;
   background-color: #002D62;
   border: 2px solid black;
-  margin-inline: 10px;
+  
+  
   border-radius: 5px;
   
   
