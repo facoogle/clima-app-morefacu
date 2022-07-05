@@ -99,13 +99,13 @@ useEffect(() => {
   
   
   
-  const [rosario, setRosario] = useState("rosario");
+  
 
 
 
   useEffect(() => {
-    onSearch(rosario);
-  }, [rosario]); 
+    onSearch("rosario");
+  }, []); 
 
   return (
     
