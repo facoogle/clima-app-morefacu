@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import './Card.css'
 import Card from './Card.jsx';
 
 export default function Cards({cities, onClose}) {
