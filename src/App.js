@@ -145,9 +145,11 @@ useEffect(() => {
 
 
 
-  //useEffect(() => {
-  //  onSearch("rosario");
-  //}, []); 
+  useEffect(() => {
+    onSearch("rosario");
+    onSearch("buenos aires");
+    onSearch("cordoba");
+  }, []); 
 
   return (
     
