@@ -1,6 +1,6 @@
 .cards {
   display: flex;
-  
+  flex-wrap: wrap;
   justify-content: center;
   position: relative;
   background-color: #002D62;

@@ -19,7 +19,7 @@ export default function SearchBar({onSearch}) {
       setNames(response.data)
     }
     loadNames()
-  },[])
+  },[names])
 
   const onSuggestHandler = (city)=>{      // onClick = onSuggestHandler donde seteo city y devuelvo array vacio para
     setCity(city)                         // que elimine la lista retornada
