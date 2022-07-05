@@ -43,7 +43,7 @@ export default function SearchBar({onSearch}) {
 
   
   return (
-    <div className="form">
+    <div >
     <form  onSubmit={(e) => {
       e.preventDefault();
       onSearch(city);
