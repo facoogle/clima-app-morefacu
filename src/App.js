@@ -54,39 +54,80 @@ useEffect(() => {
 
   
 
+
+
+
   const [cities, setCities] = useState([]);
   function onClose(id) {
     setCities(oldCities => oldCities.filter(c => c.id !== id));
   }
 
   
-  
-  function onSearch(ciudad) {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`)
-      .then(r => r.json())
-      .then((recurso) => {
-        if(recurso.main !== undefined){
-          const ciudad = {
-            min: Math.round(recurso.main.temp_min),
-            max: Math.round(recurso.main.temp_max),
-            img: recurso.weather[0].icon,
-            id: recurso.id,
-            wind: recurso.wind.speed,
-            temp: recurso.main.temp,
-            feels:recurso.main.feels_like,
-            humidity:recurso.main.humidity,
-            name: recurso.name,
-            weather: recurso.weather[0].description,
-            clouds: recurso.clouds.all,
-            latitud: recurso.coord.lat,
-            longitud: recurso.coord.lon
-          };
-          setCities(oldCities => [...oldCities, ciudad]);
-        } else {
-          alert("Ciudad no encontrada");
-        }
-      });
+
+
+
+  const onSearch = async (ciudad) => {
+    try {
+      const recurso = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`)
+     console.log(recurso)
+      if(recurso.data.main !== undefined){
+        const ciudad = {
+          min: Math.round(recurso.data.main.temp_min),
+          max: Math.round(recurso.data.main.temp_max),
+          img: recurso.data.weather[0].icon,
+          id: recurso.data.id,
+          wind: recurso.data.wind.speed,
+          temp: recurso.data.main.temp,
+          feels:recurso.data.main.feels_like,
+          humidity:recurso.data.main.humidity,
+          name: recurso.data.name,
+          weather: recurso.data.weather[0].description,
+          clouds: recurso.data.clouds.all,
+          latitud: recurso.data.coord.lat,
+          longitud: recurso.data.coord.lon
+        };
+        setCities(oldCities => [...oldCities, ciudad]);
+      } else {
+        alert("Ciudad no encontrada");
+      }
+      
+    } catch (error) {
+      console.log(error)
+    }
   }
+  
+
+
+
+
+
+
+  //function onSearch(ciudad) {
+    //fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`)
+     // .then(r => r.json())
+     // .then((recurso) => {
+       // if(recurso.main !== undefined){
+         // const ciudad = {
+           // min: Math.round(recurso.main.temp_min),
+           // max: Math.round(recurso.main.temp_max),
+           // img: recurso.weather[0].icon,
+           // id: recurso.id,
+          //  wind: recurso.wind.speed,
+           // temp: recurso.main.temp,
+           // feels:recurso.main.feels_like,
+            //humidity:recurso.main.humidity,
+            //name: recurso.name,
+           // weather: recurso.weather[0].description,
+          //  clouds: recurso.clouds.all,
+          //  latitud: recurso.coord.lat,
+        //    longitud: recurso.coord.lon
+      //    };
+    //      setCities(oldCities => [...oldCities, ciudad]);
+  //      } else {
+  //        alert("Ciudad no encontrada");
+  //      }
+  //    });
+  //}
   
   function onFilter(ciudadId) {
     let ciudad = cities.filter(c => c.id === parseInt(ciudadId));
