@@ -104,9 +104,9 @@ useEffect(() => {
 
 
 
-  useEffect(() => {
-    onSearch("rosario");
-  }, []); 
+  //useEffect(() => {
+  //  onSearch("rosario");
+  //}, []); 
 
   return (
     
