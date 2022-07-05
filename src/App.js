@@ -22,31 +22,32 @@ function App() {
     setLongitude(position.coords.longitude);
   }
 
-const fetchCity = async () => {
-  try {
-     window.navigator.geolocation.getCurrentPosition(savePositionState);
-    const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=60d505bb48f9c02e8d1f29a621cd125f&units=metric&lang=es`)
-    setTemperature(
-      {name: res.data.name,
-       temp: res.data.main.temp,
-       temp_min: res.data.main.temp_min,
-       temp_max: res.data.main.temp_max,
-       pressure: res.data.main.pressure,
-       humidity: res.data.main.humidity,
-       description: res.data.weather[0].description,
-       icon: res.data.weather[0].icon,
-       feels: res.data.main.feels_like
-      }
-       
-       
-      )
-    
-  } catch (error) {
-    console.log(error)
-  }
-}
+
 //console.log(temperature)
 useEffect(() => {
+  const fetchCity = async () => {
+    try {
+       window.navigator.geolocation.getCurrentPosition(savePositionState);
+      const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=60d505bb48f9c02e8d1f29a621cd125f&units=metric&lang=es`)
+      setTemperature(
+        {name: res.data.name,
+         temp: res.data.main.temp,
+         temp_min: res.data.main.temp_min,
+         temp_max: res.data.main.temp_max,
+         pressure: res.data.main.pressure,
+         humidity: res.data.main.humidity,
+         description: res.data.weather[0].description,
+         icon: res.data.weather[0].icon,
+         feels: res.data.main.feels_like
+        }
+         
+         
+        )
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
   fetchCity();
 }, [latitude,longitude]);
 
@@ -110,7 +111,7 @@ useEffect(() => {
   return (
     
     <div className="App">
-      <Route path='/' render={() => <Nav onSearch={onSearch}/>} fetchCity = {fetchCity} />
+      <Route path='/' render={() => <Nav onSearch={onSearch}/>} />
       <Route path='/about' component={About}/>
       <Route exact path='/' render={() =>  <HomeCard temperature= {temperature}/> }/>
       <Route exact path='/' render={() =>  <Cards cities={cities} onClose={onClose} /> }/>
