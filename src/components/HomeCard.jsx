@@ -4,7 +4,7 @@ import "./HomeCard.css"
 export default function HomeCard({temperature}){
     return(
         <div className="HomeCard">
-            <div className="tittle"><h1>Tiempo en e {temperature.name}</h1></div>
+            <div className="tittle"><h1>Tiempo en {temperature.name}</h1></div>
             <div className="temp">
             <p>Temp {temperature.temp}°C</p><hr />
             <p>Minima {temperature.temp_min}°C </p><hr />
