@@ -13,16 +13,16 @@ export default function SearchBar({onSearch}) {
   const [suggestiones, setSuggestiones] = useState([])
 
   useEffect(()=>{
-    const loadNames = async () => {                                                     //BUSCADOR EN TIEMPO REAL
-      const response = await axios.get('https://infinite-shelf-73106.herokuapp.com/') //Ciudades en express, ya que api no otorga json con LISTA de citys..
+    const loadNames = async () => {                                                     
+      const response = await axios.get('https://infinite-shelf-73106.herokuapp.com/') 
       //console.log(response.data.map(el=>el.name))
       setNames(response.data)
     }
     loadNames()
   },[])
 
-  const onSuggestHandler = (city)=>{      // onClick = onSuggestHandler donde seteo city y devuelvo array vacio para
-    setCity(city)                         // que elimine la lista retornada
+  const onSuggestHandler = (city)=>{      
+    setCity(city)                        
     setSuggestiones([])
     onSearch(city)
   }
