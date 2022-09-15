@@ -4,7 +4,8 @@ export default function About(){
     return(
         <div>
             <h4>CONTACTAME</h4>
-            <p>Mandame un mail guachinn</p>
+            <p>Email: facoogle@gmail.com</p>
+            <p>Whatsapp: +54 3434671033</p>
         </div>
     )
 }
